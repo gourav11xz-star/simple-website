@@ -6,14 +6,13 @@ const html = `
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gourav Shop | Premium Website</title>
+  <title>Gourav | Premium Website</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
@@ -52,7 +51,7 @@ const html = `
     }
 
     .hero {
-      min-height: 85vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -155,93 +154,10 @@ const html = `
       color: #cbd5e1;
     }
 
-    .shop {
-      padding: 80px 8%;
-      background: #020617;
-    }
-
-    .shop-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .shop-title h2 {
-      font-size: 46px;
-      margin-bottom: 12px;
-    }
-
-    .shop-title span {
-      color: #38bdf8;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .product {
-      padding: 28px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      transition: 0.3s;
-    }
-
-    .product:hover {
-      transform: translateY(-8px);
-      border-color: #38bdf8;
-    }
-
-    .product-img {
-      height: 170px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 58px;
-      margin-bottom: 22px;
-    }
-
-    .product h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .product p {
-      font-size: 15px;
-      margin-bottom: 18px;
-      color: #cbd5e1;
-    }
-
-    .price {
-      font-size: 25px;
-      font-weight: bold;
-      color: #38bdf8;
-      margin-bottom: 20px;
-    }
-
-    .buy-btn {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      padding: 14px;
-      border-radius: 14px;
-      background: #38bdf8;
-      color: #020617;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
     footer {
       text-align: center;
       padding: 25px;
       color: #94a3b8;
-      background: #020617;
     }
 
     @keyframes float {
@@ -249,34 +165,38 @@ const html = `
       50% { transform: translateY(-10px); }
     }
 
-    @media (max-width: 850px) {
-      .stats, .products {
-        grid-template-columns: 1fr;
+    @media (max-width: 700px) {
+      nav {
+        padding: 20px;
       }
 
       .card {
         padding: 35px 22px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="logo">Gourav<span>Shop</span></div>
-    <a class="nav-btn" href="#shop">Shop Now</a>
+    <div class="logo">Gourav<span>Web</span></div>
+    <a class="nav-btn" href="#">Live on AWS</a>
   </nav>
 
   <section class="hero">
     <div class="card">
-      <div class="badge">🚀 Premium Shopping Website Running</div>
-      <h1>Welcome to <span>Gourav Shop</span></h1>
+      <div class="badge">🚀 Premium Website Running </div>
+      <h1>Welcome to <span>My Website</span></h1>
       <p>
-        A clean, modern and premium shopping landing page hosted on a cloud server using Node.js.
+        This is a clean, modern and premium landing page hosted on an clouds server using Node.js.
         Fast, responsive and ready to customize.
       </p>
 
       <div class="buttons">
-        <a class="btn primary" href="#shop">Get Started</a>
+        <a class="btn primary" href="#">Get Started</a>
         <a class="btn secondary" href="https://github.com/gourav11xz-star/simple-website">View GitHub</a>
       </div>
 
@@ -286,8 +206,8 @@ const html = `
           <small>Live Server</small>
         </div>
         <div class="stat">
-          <h2>Shop</h2>
-          <small>Product Cards</small>
+          <h2>AWS</h2>
+          <small>EC2 Hosting</small>
         </div>
         <div class="stat">
           <h2>Node</h2>
@@ -297,41 +217,8 @@ const html = `
     </div>
   </section>
 
-  <section class="shop" id="shop">
-    <div class="shop-title">
-      <h2>Featured <span>Products</span></h2>
-      <p>Premium products section for your shopping website.</p>
-    </div>
-
-    <div class="products">
-      <div class="product">
-        <div class="product-img">🎧</div>
-        <h3>Wireless Headphones</h3>
-        <p>High quality sound with premium comfort and stylish design.</p>
-        <div class="price">₹1,499</div>
-        <a class="buy-btn" href="#">Buy Now</a>
-      </div>
-
-      <div class="product">
-        <div class="product-img">⌚</div>
-        <h3>Smart Watch</h3>
-        <p>Track fitness, calls and notifications with a modern smart watch.</p>
-        <div class="price">₹2,999</div>
-        <a class="buy-btn" href="#">Buy Now</a>
-      </div>
-
-      <div class="product">
-        <div class="product-img">🛒</div>
-        <h3>Premium Combo</h3>
-        <p>Best value shopping combo with clean and premium product layout.</p>
-        <div class="price">₹4,999</div>
-        <a class="buy-btn" href="#">Buy Now</a>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    Made by Gourav • Premium Shopping Website
+    Made by Gourav • Powered by AWS EC2
   </footer>
 </body>
 </html>
@@ -343,5 +230,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, "0.0.0.0", () => {
-  console.log("Shopping website running on port 3000");
+  console.log("Premium website running on port 3000");
 });
