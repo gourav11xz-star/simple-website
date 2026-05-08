@@ -188,10 +188,10 @@ const html = `
 
   <section class="hero">
     <div class="card">
-      <div class="badge">🚀 Premium Website Running on AWS EC2</div>
+      <div class="badge">🚀 Premium Website Running </div>
       <h1>Welcome to <span>My Website</span></h1>
       <p>
-        This is a clean, modern and premium landing page hosted on an AWS EC2 server using Node.js.
+        This is a clean, modern and premium landing page hosted on an clouds server using Node.js.
         Fast, responsive and ready to customize.
       </p>
 
