@@ -6,333 +6,246 @@ const html = `
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gourav Shop | Premium Website</title>
+  <title>Gourav | Bio Link</title>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
       min-height: 100vh;
-      background: radial-gradient(circle at top, #2563eb, #020617 55%);
       color: white;
-      overflow-x: hidden;
-    }
-
-    nav {
-      width: 100%;
-      padding: 24px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .logo span {
-      color: #38bdf8;
-    }
-
-    .nav-btn {
-      padding: 12px 22px;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 999px;
-      color: white;
-      text-decoration: none;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero {
-      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 8%;
-      text-align: center;
+      overflow: hidden;
+      background: #050505;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 140, 255, 0.35), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(140, 0, 255, 0.30), transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 45%),
+        #050505;
+      filter: blur(0px);
+      z-index: -2;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 45px 45px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent);
+      z-index: -1;
     }
 
     .card {
-      max-width: 900px;
-      padding: 55px;
-      border-radius: 32px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.20);
-      box-shadow: 0 30px 100px rgba(0,0,0,0.45);
-      backdrop-filter: blur(18px);
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(56,189,248,0.18);
-      color: #7dd3fc;
-      margin-bottom: 22px;
-      font-size: 15px;
-      border: 1px solid rgba(125,211,252,0.35);
-    }
-
-    h1 {
-      font-size: clamp(42px, 7vw, 82px);
-      line-height: 1.05;
-      margin-bottom: 22px;
-    }
-
-    h1 span {
-      color: #38bdf8;
-    }
-
-    p {
-      font-size: 20px;
-      color: #cbd5e1;
-      max-width: 720px;
-      margin: 0 auto 34px;
-      line-height: 1.7;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 15px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .primary {
-      background: #38bdf8;
-      color: #020617;
-      box-shadow: 0 15px 40px rgba(56,189,248,0.35);
-    }
-
-    .secondary {
-      background: rgba(255,255,255,0.10);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 42px;
-    }
-
-    .stat {
-      padding: 22px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.08);
+      width: 92%;
+      max-width: 430px;
+      padding: 35px;
+      border-radius: 30px;
+      background: rgba(15, 15, 20, 0.72);
       border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .stat h2 {
-      color: #38bdf8;
-      margin-bottom: 6px;
-      font-size: 32px;
-    }
-
-    .stat small {
-      color: #cbd5e1;
-    }
-
-    .shop {
-      padding: 80px 8%;
-      background: #020617;
-    }
-
-    .shop-title {
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 100px rgba(0,0,0,0.75);
       text-align: center;
-      margin-bottom: 45px;
+      animation: pop 0.8s ease;
     }
 
-    .shop-title h2 {
-      font-size: 46px;
-      margin-bottom: 12px;
-    }
-
-    .shop-title span {
-      color: #38bdf8;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-      max-width: 1150px;
+    .avatar {
+      width: 125px;
+      height: 125px;
       margin: auto;
-    }
-
-    .product {
-      padding: 28px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      transition: 0.3s;
-    }
-
-    .product:hover {
-      transform: translateY(-8px);
-      border-color: #38bdf8;
-    }
-
-    .product-img {
-      height: 170px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #8b5cf6);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 58px;
-      margin-bottom: 22px;
+      font-size: 54px;
+      border: 4px solid rgba(255,255,255,0.18);
+      box-shadow: 0 0 45px rgba(56,189,248,0.35);
     }
 
-    .product h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    h1 {
+      margin-top: 20px;
+      font-size: 34px;
+      letter-spacing: 1px;
     }
 
-    .product p {
+    .tag {
+      margin-top: 8px;
+      color: #a5b4fc;
       font-size: 15px;
-      margin-bottom: 18px;
+    }
+
+    .bio {
+      margin-top: 18px;
       color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.7;
     }
 
-    .price {
-      font-size: 25px;
-      font-weight: bold;
+    .stats {
+      margin: 24px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 14px 8px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 19px;
       color: #38bdf8;
-      margin-bottom: 20px;
     }
 
-    .buy-btn {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      padding: 14px;
-      border-radius: 14px;
-      background: #38bdf8;
-      color: #020617;
+    .stat span {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link {
+      padding: 16px;
+      border-radius: 18px;
       text-decoration: none;
+      color: white;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.25s;
       font-weight: bold;
     }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #94a3b8;
-      background: #020617;
+    .link:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(56,189,248,0.18);
+      border-color: rgba(56,189,248,0.55);
+      box-shadow: 0 15px 40px rgba(56,189,248,0.18);
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .music {
+      margin-top: 22px;
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #cbd5e1;
+      font-size: 14px;
     }
 
-    @media (max-width: 850px) {
-      .stats, .products {
-        grid-template-columns: 1fr;
+    .footer {
+      margin-top: 20px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 28px 20px;
       }
 
-      .card {
-        padding: 35px 22px;
+      h1 {
+        font-size: 30px;
       }
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <div class="logo">Gourav<span>Shop</span></div>
-    <a class="nav-btn" href="#shop">Shop Now</a>
-  </nav>
+  <div class="bg"></div>
+  <div class="grid"></div>
 
-  <section class="hero">
-    <div class="card">
-      <div class="badge">🚀 Premium Shopping Website Running</div>
-      <h1>Welcome to <span>Gourav Shop</span></h1>
-      <p>
-        A clean, modern and premium shopping landing page hosted on a cloud server using Node.js.
-        Fast, responsive and ready to customize.
-      </p>
+  <main class="card">
+    <div class="avatar">G</div>
 
-      <div class="buttons">
-        <a class="btn primary" href="#shop">Get Started</a>
-        <a class="btn secondary" href="https://github.com/gourav11xz-star/simple-website">View GitHub</a>
+    <h1>Gourav</h1>
+    <div class="tag">@gourav11xz-star</div>
+
+    <p class="bio">
+      Developer • Creator • Gamer<br>
+      Welcome to my premium bio page.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <b>1.2K</b>
+        <span>Views</span>
       </div>
-
-      <div class="stats">
-        <div class="stat">
-          <h2>100%</h2>
-          <small>Live Server</small>
-        </div>
-        <div class="stat">
-          <h2>Shop</h2>
-          <small>Product Cards</small>
-        </div>
-        <div class="stat">
-          <h2>Node</h2>
-          <small>Backend Running</small>
-        </div>
+      <div class="stat">
+        <b>24/7</b>
+        <span>Online</span>
+      </div>
+      <div class="stat">
+        <b>AWS</b>
+        <span>Hosted</span>
       </div>
     </div>
-  </section>
 
-  <section class="shop" id="shop">
-    <div class="shop-title">
-      <h2>Featured <span>Products</span></h2>
-      <p>Premium products section for your shopping website.</p>
+    <div class="links">
+      <a class="link" href="https://github.com/gourav11xz-star" target="_blank">
+        <span>GitHub</span>
+        <span>↗</span>
+      </a>
+
+      <a class="link" href="#" target="_blank">
+        <span>Discord</span>
+        <span>↗</span>
+      </a>
+
+      <a class="link" href="#" target="_blank">
+        <span>YouTube</span>
+        <span>↗</span>
+      </a>
+
+      <a class="link" href="#" target="_blank">
+        <span>Instagram</span>
+        <span>↗</span>
+      </a>
     </div>
 
-    <div class="products">
-      <div class="product">
-        <div class="product-img">🎧</div>
-        <h3>Wireless Headphones</h3>
-        <p>High quality sound with premium comfort and stylish design.</p>
-        <div class="price">₹1,499</div>
-        <a class="buy-btn" href="#">Buy Now</a>
-      </div>
-
-      <div class="product">
-        <div class="product-img">⌚</div>
-        <h3>Smart Watch</h3>
-        <p>Track fitness, calls and notifications with a modern smart watch.</p>
-        <div class="price">₹2,999</div>
-        <a class="buy-btn" href="#">Buy Now</a>
-      </div>
-
-      <div class="product">
-        <div class="product-img">🛒</div>
-        <h3>Premium Combo</h3>
-        <p>Best value shopping combo with clean and premium product layout.</p>
-        <div class="price">₹4,999</div>
-        <a class="buy-btn" href="#">Buy Now</a>
-      </div>
+    <div class="music">
+      🎧 Now Playing: Premium Vibes
     </div>
-  </section>
 
-  <footer>
-    Made by Gourav • Premium Shopping Website
-  </footer>
+    <div class="footer">
+      made by Gourav • running on AWS
+    </div>
+  </main>
 </body>
 </html>
 `;
@@ -343,5 +256,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, "0.0.0.0", () => {
-  console.log("Shopping website running on port 3000");
+  console.log("Bio link website running on port 3000");
 });
