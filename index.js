@@ -6,7 +6,7 @@ const html = `
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gourav | Bio Link</title>
+  <title>Gourav Bio</title>
 
   <style>
     * {
@@ -18,188 +18,138 @@ const html = `
 
     body {
       min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(0, 195, 255, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(140, 0, 255, 0.35), transparent 35%),
+        #050505;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      background: #050505;
-    }
-
-    .bg {
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(0, 140, 255, 0.35), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(140, 0, 255, 0.30), transparent 35%),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 45%),
-        #050505;
-      filter: blur(0px);
-      z-index: -2;
-    }
-
-    .grid {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 45px 45px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent);
-      z-index: -1;
+      padding: 20px;
     }
 
     .card {
-      width: 92%;
-      max-width: 430px;
-      padding: 35px;
-      border-radius: 30px;
-      background: rgba(15, 15, 20, 0.72);
-      border: 1px solid rgba(255,255,255,0.14);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 30px 100px rgba(0,0,0,0.75);
+      width: 100%;
+      max-width: 440px;
+      padding: 35px 28px;
+      border-radius: 28px;
+      background: rgba(20, 20, 30, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 0 70px rgba(0, 195, 255, 0.25);
       text-align: center;
-      animation: pop 0.8s ease;
     }
 
     .avatar {
-      width: 125px;
-      height: 125px;
-      margin: auto;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 18px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 54px;
-      border: 4px solid rgba(255,255,255,0.18);
-      box-shadow: 0 0 45px rgba(56,189,248,0.35);
+      font-size: 55px;
+      font-weight: bold;
+      box-shadow: 0 0 45px rgba(0, 212, 255, 0.55);
     }
 
     h1 {
-      margin-top: 20px;
-      font-size: 34px;
-      letter-spacing: 1px;
+      font-size: 38px;
+      margin-bottom: 8px;
     }
 
-    .tag {
-      margin-top: 8px;
-      color: #a5b4fc;
+    .username {
+      color: #7dd3fc;
+      margin-bottom: 18px;
       font-size: 15px;
     }
 
     .bio {
-      margin-top: 18px;
       color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 24px;
       font-size: 15px;
-      line-height: 1.7;
     }
 
     .stats {
-      margin: 24px 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 10px;
+      margin-bottom: 24px;
     }
 
     .stat {
       padding: 14px 8px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .stat b {
-      display: block;
-      font-size: 19px;
       color: #38bdf8;
+      display: block;
+      font-size: 18px;
     }
 
     .stat span {
-      font-size: 12px;
       color: #94a3b8;
+      font-size: 12px;
     }
 
     .links {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 13px;
     }
 
     .link {
       padding: 16px;
-      border-radius: 18px;
-      text-decoration: none;
+      border-radius: 17px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
       color: white;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      text-decoration: none;
+      font-weight: bold;
       display: flex;
-      align-items: center;
       justify-content: space-between;
       transition: 0.25s;
-      font-weight: bold;
     }
 
     .link:hover {
-      transform: translateY(-4px) scale(1.02);
-      background: rgba(56,189,248,0.18);
-      border-color: rgba(56,189,248,0.55);
-      box-shadow: 0 15px 40px rgba(56,189,248,0.18);
+      background: rgba(56,189,248,0.22);
+      border-color: #38bdf8;
+      transform: translateY(-3px);
     }
 
     .music {
       margin-top: 22px;
-      padding: 15px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.07);
       color: #cbd5e1;
       font-size: 14px;
     }
 
     .footer {
-      margin-top: 20px;
+      margin-top: 18px;
       color: #64748b;
       font-size: 13px;
-    }
-
-    @keyframes pop {
-      from {
-        opacity: 0;
-        transform: translateY(25px) scale(0.96);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 28px 20px;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
     }
   </style>
 </head>
 
 <body>
-  <div class="bg"></div>
-  <div class="grid"></div>
-
-  <main class="card">
+  <div class="card">
     <div class="avatar">G</div>
 
     <h1>Gourav</h1>
-    <div class="tag">@gourav11xz-star</div>
+    <div class="username">@gourav11xz-star</div>
 
-    <p class="bio">
+    <div class="bio">
       Developer • Creator • Gamer<br>
-      Welcome to my premium bio page.
-    </p>
+      Welcome to my premium bio link page.
+    </div>
 
     <div class="stats">
       <div class="stat">
@@ -218,34 +168,22 @@ const html = `
 
     <div class="links">
       <a class="link" href="https://github.com/gourav11xz-star" target="_blank">
-        <span>GitHub</span>
-        <span>↗</span>
+        <span>GitHub</span><span>↗</span>
       </a>
-
       <a class="link" href="#" target="_blank">
-        <span>Discord</span>
-        <span>↗</span>
+        <span>Discord</span><span>↗</span>
       </a>
-
       <a class="link" href="#" target="_blank">
-        <span>YouTube</span>
-        <span>↗</span>
+        <span>YouTube</span><span>↗</span>
       </a>
-
       <a class="link" href="#" target="_blank">
-        <span>Instagram</span>
-        <span>↗</span>
+        <span>Instagram</span><span>↗</span>
       </a>
     </div>
 
-    <div class="music">
-      🎧 Now Playing: Premium Vibes
-    </div>
-
-    <div class="footer">
-      made by Gourav • running on AWS
-    </div>
-  </main>
+    <div class="music">🎧 Now Playing: Premium Vibes</div>
+    <div class="footer">made by Gourav • running on AWS</div>
+  </div>
 </body>
 </html>
 `;
@@ -256,5 +194,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, "0.0.0.0", () => {
-  console.log("Bio link website running on port 3000");
+  console.log("Bio website running on port 3000");
 });
